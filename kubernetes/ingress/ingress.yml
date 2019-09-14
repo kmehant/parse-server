@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: microservice-ingress
+  namespace: microservice
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /alerts
+        backend:
+          serviceName: alertmanager
+          servicePort: 9093       
+      - path: /api
+        backend:
+          serviceName: parse
+          servicePort: 1337 
+      - path: /prom
+        backend:
+          serviceName: prometheus
+          servicePort: 8080   
+      - path: /grafana
+        backend:
+          serviceName: grafana
+          servicePort: 3000       

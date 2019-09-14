@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: parse
+  namespace: microservice
+spec:
+  ports:
+  - port: 1337
+    protocol: TCP
+    targetPort: 1337
+  selector:
+    app: parse 
